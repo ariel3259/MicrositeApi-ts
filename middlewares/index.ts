@@ -1,5 +1,6 @@
 import cors from "cors"
 import {json, Express} from "express"
+import helmet from "helmet"
 
 export default class Middlewares {
     #app: Express 
@@ -9,7 +10,8 @@ export default class Middlewares {
     }
 
     startMiddlewares(): void{
-        this.#app.use(cors());
+        this.#app.use(helmet());
         this.#app.use(json());
+        this.#app.use(cors());
     }
 }
